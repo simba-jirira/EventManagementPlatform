@@ -55,7 +55,7 @@ The Laravel 10.x Event Management Platform is a next-generation tool crafted for
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/event-management-platform.git
+    git clone https://github.com/simba-jirira/EventManagementPlatform.git
     ```
 
 2. Navigate into the directory:
@@ -117,6 +117,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 If you have any questions, feel free to reach out to us:
 
-- **John Doe** - johndoe@example.com
+- **Simba Jirira** - hello@simbajirira.com
 - **Project Link**: [https://github.com/simba-jirira/EventManagementPlatform](https://github.com/simba-jirira/EventManagementPlatform)
 
