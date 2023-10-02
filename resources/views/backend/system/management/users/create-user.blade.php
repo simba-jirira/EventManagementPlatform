@@ -4,28 +4,26 @@
 
 @section('content_header')
     @include('components.alerts.alerts')
-    <h1>Create New User</h1>
+    <h1>New Record</h1>
 @stop
 
 
 @section('content')
-    <div class="card">
-
-
-        <div class="card-body">
-            <div class="card-body table-responsive p-0">
-{{--                @include('backend.system.management.users.components.table')--}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fa fa-user-plus fa-faw"></i>
+                            <small>User form</small>
+                        </h3>
+                    </div>
+                    @include('backend.system.management.users.components.form')
+                </div>
             </div>
+            <div class="col-md-6"></div>
         </div>
-
-        <div class="card-footer">
-            <div class="justify-content-end">
-                <span class="float-right">
-
-                </span>
-            </div>
-        </div>
-
     </div>
 @stop
 
