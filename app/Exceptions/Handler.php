@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Exceptions\backend\System\Management\User\UserCrudException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -27,4 +29,11 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function report(Throwable $e)
+    {
+        Log::error('user-crud-management: ' . $e->getMessage());
+        parent::report($e);
+    }
+
+
 }

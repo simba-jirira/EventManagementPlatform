@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'system/management/home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -313,7 +313,7 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => '/system/home',
+            'url'         => '/system/management/home',
             'icon'        => 'fa fa-home fa-fw',
         ],
         [
@@ -321,8 +321,8 @@ return [
             'icon'    => 'fas fa-fw fa-user',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'View Users',
+                    'url'  => '/system/management/users',
                 ],
                 [
                     'text' => 'level_one',

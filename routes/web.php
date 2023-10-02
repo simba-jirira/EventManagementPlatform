@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\System\Management\User\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 
@@ -21,9 +22,12 @@ Route::get('/hello', function (){
     return view('test');
 });
 
-Route::name('system.')->prefix('system')->group(function (){
+Route::name('system.')->prefix('system/management')->group(function (){
     Route::controller(DashboardController::class)->group(function (){
         Route::get('/home','index')->name('dashboard');
+    });
+    Route::controller(UserController::class)->group( function () {
+        Route::get('/users','index')->name('users');
     });
 })->middleware('auth');
 

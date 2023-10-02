@@ -58,6 +58,11 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'user-crud-management' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/backend/system/management/user/user-crud-management.log'),
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
