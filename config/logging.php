@@ -58,6 +58,16 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'create-user-view-management' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/backend/system/management/user/create-user-view.log'),
+        ],
+
+        'user-destroy-crud-management' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/backend/system/management/user/destroy-crud-management.log'),
+        ],
+
         'user-crud-management' => [
             'driver' => 'single',
             'path' => storage_path('logs/backend/system/management/user/user-crud-management.log'),
