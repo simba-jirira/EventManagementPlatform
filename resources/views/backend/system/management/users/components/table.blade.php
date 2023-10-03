@@ -17,13 +17,12 @@
             <td class="px-4 py-3 text-left text-sm">{{$user->created_at->toDayDateTimeString()}}</td>
             <td class="px-4 py-3 align-items-center text-sm flex ">
                 <div class="d-flex flex-row  align-items-center">
-                    <form action="" method="POST" class="px-1 py-1>
-                        @csrf
+                    <a href="{{route('system.management.users.edit-user',$user->id)}}">
                         <button
                             class="btn btn-light flex items-center justify-between px-0 py-0 btn-sm ">
                             <i class="fa fa-edit fa-fw text-primary"></i>
                         </button>
-                    </form>
+                    </a>
                     <form action="{{route('system.management.user.delete', $user->id)}}" method="POST">
                         @csrf
                         <button

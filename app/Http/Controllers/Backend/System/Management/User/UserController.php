@@ -31,7 +31,8 @@ class UserController extends Controller
 
     public function createUser()
     {
-       return view('backend.system.management.users.create-user');
+        $user = [];
+       return view('backend.system.management.users.create-user', compact('user'));
     }
 
     public function store(UserFormRequest $request)
@@ -49,6 +50,31 @@ class UserController extends Controller
                 ['Error '=>$e->getMessage(), ' Error Code '=> $e->getCode()]);
             return redirect()->route('system.management.users.create-user')
                 ->with('error','Failed to create user!.');
+        }
+    }
+
+    public function edit(User $user)
+    {
+        Log::channel('update-user-management')
+            ->info('Requested User Record: '.$user->id.' To Update!');
+        return view('backend.system.management.users.edit-user',compact('user'));
+    }
+
+    public function update(UserFormRequest $request, User $user)
+    {
+        try {
+            $user->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+            ]);
+            Log::channel('update-user-management')
+                ->info('Requested User Record: '.$user->id.' Is Updated!');
+            return redirect()->route('system.management.users')->with('success','The user has been updated!');
+        } catch (\ErrorException|\Exception|QueryException $e){
+            Log::channel('update-user-management')
+                ->error('Requested User Record: '.$user->id.' Is Not Updated!',
+                    ['Error '=>$e->getMessage(), ' Error Code '=> $e->getCode(),' Query Ran:'=>$e->getSql()]);
+            return back()->with('error','That user was not updated!');
         }
     }
 

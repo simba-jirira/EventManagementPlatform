@@ -58,6 +58,11 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'update-user-management' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/backend/system/management/user/update-user.log'),
+        ],
+
         'create-new-user-management' => [
             'driver' => 'single',
             'path' => storage_path('logs/backend/system/management/user/create-new-user.log'),
