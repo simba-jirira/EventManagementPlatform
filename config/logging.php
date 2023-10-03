@@ -58,9 +58,9 @@ return [
             'ignore_exceptions' => false,
         ],
 
-        'create-user-view-management' => [
+        'create-new-user-management' => [
             'driver' => 'single',
-            'path' => storage_path('logs/backend/system/management/user/create-user-view.log'),
+            'path' => storage_path('logs/backend/system/management/user/create-new-user.log'),
         ],
 
         'user-destroy-crud-management' => [

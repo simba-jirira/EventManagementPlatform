@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Whoops\Exception\ErrorException;
 
 class UserController extends Controller
@@ -35,7 +36,20 @@ class UserController extends Controller
 
     public function store(UserFormRequest $request)
     {
-        //
+        try {
+            $user = User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => bcrypt(Str::random(10)),
+            ]);
+            Log::channel('create-new-user-management')->info('The user has been created!');
+            return redirect()->route('system.management.users')->with('success','The user has been created!');
+        } catch (QueryException|\Exception $e){
+            Log::channel('create-new-user-management')->error('failed to create user ',
+                ['Error '=>$e->getMessage(), ' Error Code '=> $e->getCode()]);
+            return redirect()->route('system.management.users.create-user')
+                ->with('error','Failed to create user!.');
+        }
     }
 
     public function destroy(User $user)

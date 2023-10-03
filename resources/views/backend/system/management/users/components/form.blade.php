@@ -1,32 +1,25 @@
-<form id="quickForm" novalidate="novalidate">
+<form id="quickForm" novalidate="novalidate"
+      method="POST" action="{{route('system.management.users.create-user')}}">
+    @csrf
     <div class="card-body">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="email" class="form-control is-invalid"
-                   id="exampleInputEmail1" placeholder="Enter email"
-                   fdprocessedid="m5hej4" aria-describedby="exampleInputEmail1-error" aria-invalid="true">
-            <span id="exampleInputEmail1-error" class="error invalid-feedback">Please enter a email address</span>
+            <label for="name">Enter Fullname</label>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                   id="name" placeholder="Enter fullname" value="{{old('name')}}"
+                   fdprocessedid="m5hej4" aria-describedby="name-error" aria-invalid="true">
+            @error('name')
+                <span id="name-error" class="error invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control is-invalid"
-                   id="exampleInputPassword1" placeholder="Password" fdprocessedid="y7fr8i"
-                   aria-describedby="exampleInputPassword1-error">
-            <span id="exampleInputPassword1-error" class="error invalid-feedback">Please provide a password</span>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control is-invalid"
-                   id="exampleInputPassword1" placeholder="Password" fdprocessedid="y7fr8i"
-                   aria-describedby="exampleInputPassword1-error">
-            <span id="exampleInputPassword1-error" class="error invalid-feedback">Please provide a password</span>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control is-invalid"
-                   id="exampleInputPassword1" placeholder="Password" fdprocessedid="y7fr8i"
-                   aria-describedby="exampleInputPassword1-error">
-            <span id="exampleInputPassword1-error" class="error invalid-feedback">Please provide a password</span>
+            <label for="email">E mail Address</label>
+            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                   id="email" placeholder="Enter email address" fdprocessedid="y7fr8i"
+                   value="{{old('email')}}"
+                   aria-describedby="email-error">
+            @error('email')
+                <span id="email-error" class="error invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
     </div>
 
